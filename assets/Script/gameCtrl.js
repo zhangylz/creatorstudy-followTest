@@ -46,7 +46,12 @@ cc.Class({
         if (this.offsetList.length > 0 && this.hero.getNumberOfRunningActions() == 0) {
             var xOffset = this.offsetList.splice(0, 1);
             console.log("xOffset = ", xOffset[0]);
-            if (((this.hero.parent.getPositionX() - xOffset[0]) < -4430) || ((this.hero.parent.getPositionX() - xOffset[0]) > 4430)) return; 
+            if (((this.hero.parent.getPositionX() - xOffset[0]) < -4580) || ((this.hero.parent.getPositionX() - xOffset[0]) > 4580)) return;
+            if (xOffset[0] < 0) {
+                this.hero.setScaleX(1);
+            } else {
+                this.hero.setScaleX(-1);
+            }
             this.hero.runAction(cc.moveBy(0.3, xOffset[0], 0));
         }
     }
